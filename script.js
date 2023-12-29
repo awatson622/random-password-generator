@@ -17,6 +17,9 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+resultEl.innerText = generatePassword(hasUpper, hasLower, hasNumbers, hasSymbols, length);
+  console.log("generatebut");
+
 function generatePassword(input) {
     if (input === "8") {
         console.log("characters");
@@ -40,4 +43,19 @@ function generatePassword(input) {
       }
 }
 
-
+if (upperCase.toLowerCase() === 'yes') {
+    var hasUpper = true;
+    console.log("upper: " + hasUpper);
+  }
+  if (lowerCase.toLowerCase() === 'yes') {
+    var hasLower = true;
+    console.log("lower: " + hasLower);
+  }
+  if (numbers.toLowerCase() === 'yes') {
+    var hasNumbers = true;
+    console.log("number: " + hasNumbers);
+  }
+  if (symbols.toLowerCase() === 'yes') {
+    var hasSymbols = true;
+    console.log("symbol: " + hasSymbols);
+  }
