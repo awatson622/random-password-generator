@@ -29,21 +29,4 @@ Include a link or GIF to a live demo or a screenshot of the application in actio
 
 Include instructions on how to install your password generator.
 
-```bash
-npm install your-password-generator
 
-## Usage
-
-const passwordGenerator = require('your-password-generator');
-
-const options = {
-  length: 12,
-  uppercase: true,
-  lowercase: true,
-  numbers: true,
-  symbols: true,
-};
-
-const password = passwordGenerator.generatePassword(options);
-
-console.log(password);
