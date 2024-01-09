@@ -18,7 +18,7 @@ A simple and customizable JavaScript password generator that creates strong and 
 
 ## Demo
 
-Include a link or GIF to a live demo or a screenshot of the application in action.
+https://awatson622.github.io/random-password-generator/
 
 ## Getting Started
 
@@ -29,7 +29,7 @@ Include a link or GIF to a live demo or a screenshot of the application in actio
 
 ### Installation
 
-No installation is required. Simply open your web browser and visit 
+No installation is required. Simply open your web browser and visit https://awatson622.github.io/random-password-generator/ .
 
 ## Usage
 
