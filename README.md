@@ -24,7 +24,7 @@ https://awatson622.github.io/random-password-generator/
 
 1. Open the webpage containing the password generator.
 2. Click the "Generate Password" button.
-3. Follow the prompts to customize your password (include details about the prompts).
+3. Follow the prompts to customize your password.
 4. Your secure password will be generated and displayed.
 
 ### Installation
