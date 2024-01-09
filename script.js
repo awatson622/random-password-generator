@@ -1,61 +1,57 @@
-// Assignment Code
+// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  var characters = prompt("How many characters should the password contain (8-128)");
-  var upperCase = prompt("Should the password contain uppercase letters?");
-  var lowerCase = prompt("Should the password contain lowercase letters?");
-  var numbers = prompt("Should the password contain numbers?");
-  var symbols = prompt("Should the password contain symbols?");
+  var passwordLength = prompt("How many characters should the password contain (8-128)?");
+  
+  // Validate password length
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Password length must be between 8 and 128 characters.");
+    return;
+  }
 
+  var includeUpperCase = confirm("Should the password contain uppercase letters?");
+  var includeLowerCase = confirm("Should the password contain lowercase letters?");
+  var includeNumbers = confirm("Should the password contain numbers?");
+  var includeSpecialCharacters = confirm("Should the password contain special characters?");
+
+  // Validate that at least one character type is selected
+  if (!includeUpperCase && !includeLowerCase && !includeNumbers && !includeSpecialCharacters) {
+    alert("Please select at least one character type.");
+    return;
+  }
+
+  var password = generatePassword(passwordLength, includeUpperCase, includeLowerCase, includeNumbers, includeSpecialCharacters);
+  var passwordText = document.querySelector("#password");
   passwordText.value = password;
+}
+
+// Function to generate password based on criteria
+function generatePassword(length, upperCase, lowerCase, numbers, specialCharacters) {
+  var allCharacters = "";
+  
+  if (upperCase) {
+    allCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (lowerCase) {
+    allCharacters += "abcdefghijklmnopqrstuvwxyz";
+  }
+  if (numbers) {
+    allCharacters += "0123456789";
+  }
+  if (specialCharacters) {
+    allCharacters += "!@#$%^&*()_+[]{}|;:,.<>?";
+  }
+
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    var randomIndex = Math.floor(Math.random() * allCharacters.length);
+    password += allCharacters.charAt(randomIndex);
+  }
+
+  return password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-resultEl.innerText = generatePassword(hasUpper, hasLower, hasNumbers, hasSymbols, length);
-  console.log("generatebut");
-
-function generatePassword(input) {
-    if (input === "8") {
-        console.log("characters");
-        return getRandomNumber();
-    }
-    if (input === "yes") {
-        console.log("upper");
-        return getRandomUpper();
-    }
-    if (input === "yes") {
-        console.log("lower")
-        return getRandomLower();
-      }
-      if (input === "yes") {
-        console.log("numbers")
-        return getRandomNumber();
-      }
-      if (input === "yes") {
-        console.log("symbols")
-        return getRandomSymbol();
-      }
-}
-
-if (upperCase.toLowerCase() === 'yes') {
-    var hasUpper = true;
-    console.log("upper: " + hasUpper);
-  }
-  if (lowerCase.toLowerCase() === 'yes') {
-    var hasLower = true;
-    console.log("lower: " + hasLower);
-  }
-  if (numbers.toLowerCase() === 'yes') {
-    var hasNumbers = true;
-    console.log("number: " + hasNumbers);
-  }
-  if (symbols.toLowerCase() === 'yes') {
-    var hasSymbols = true;
-    console.log("symbol: " + hasSymbols);
-  }
